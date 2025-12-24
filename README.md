@@ -58,10 +58,10 @@ PONG
 
 The application uses environment variables for configuration.
 
-| Variable | Description | Default |
-|--------|------------|---------|
-| SERVER_PORT | HTTP server port | 3000 |
-| REDIS_ADDR | Redis address | localhost:6379 |
+| Variable    | Description      | Default        |
+| ----------- | ---------------- | -------------- |
+| SERVER_PORT | HTTP server port | 3000           |
+| REDIS_ADDR  | Redis address    | localhost:6379 |
 
 ---
 
@@ -94,12 +94,14 @@ http://localhost:3000
 ---
 
 ### Create Order
+
 POST /orders
 
 Headers:
 Content-Type: application/json
 
 Body:
+
 ```json
 {
   "customer_id": "550e8400-e29b-41d4-a716-446655440000",
@@ -116,11 +118,13 @@ Body:
 ---
 
 ### Get All Orders
+
 GET /orders?cursor=10
 
 ---
 
 ### Get Order By ID
+
 GET /orders/{id}
 
 Example:
@@ -129,25 +133,29 @@ orders/12218349957311340894
 ---
 
 ### Update Order By ID
+
 PUT /orders/{id}
 
 Body:
+
 ```json
 {
-  "customer_id": "550e8400-e29b-41d4-a716-446655440000",
-  "line_items": [
-    {
-      "item_id": "c1f4e9d2-0a6f-4d4e-9b5e-8d9e1c5fbc21",
-      "quantity": 5,
-      "price": 1999
-    }
-  ]
+  "status": "shipped"
+}
+```
+
+OR
+
+```json
+{
+  "status": "completed"
 }
 ```
 
 ---
 
 ### Delete Order By ID
+
 DELETE /orders/{id}
 
 ---
